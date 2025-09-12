@@ -19,8 +19,12 @@ const MainLayout: React.FC = () => {
       <header className="border-b bg-white">
         <div className="container mx-auto p-4 flex justify-between items-center">
           <div className="flex items-center">
-            <img src="/vite.svg" alt="Vitality Logo" className="h-8 w-8 mr-2" />
-            <h1 className="text-2xl font-bold">Vitality</h1>
+            <img
+              src="/logo.webp"
+              alt="M8TRIX Health Logo"
+              className="h-8 mr-2"
+            />
+            <h1 className="text-2xl font-bold">M8TRIX Health</h1>
           </div>
           <div className="flex items-center gap-4">
             <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full flex items-center">
