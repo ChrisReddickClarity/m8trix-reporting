@@ -8,6 +8,18 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+/**
+ * PRD Section: Functional Areas Overview
+ *
+ * Interactive dashboard displaying overall health score, functional areas (sleep, energy,
+ * cardiovascular health, etc.), and biomarker results with clear visual indicators for
+ * out-of-range values.
+ *
+ * This component specifically handles the functional areas overview, displaying various
+ * body systems and their performance scores with visual indicators. It allows filtering
+ * by performance level and highlights focus areas for improvement.
+ */
+
 interface FunctionalArea {
   name: string;
   score: number;

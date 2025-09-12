@@ -3,6 +3,18 @@ import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+/**
+ * PRD Section: Overall Health Score Display
+ *
+ * Interactive dashboard displaying overall health score, functional areas (sleep, energy,
+ * cardiovascular health, etc.), and biomarker results with clear visual indicators for
+ * out-of-range values.
+ *
+ * This component specifically handles the overall health score (Vitality Score) display,
+ * showing the user's current health score, percentile ranking, biological age comparison,
+ * and focus areas for improvement.
+ */
+
 interface VitalityScoreProps {
   score?: number;
   percentile?: number;

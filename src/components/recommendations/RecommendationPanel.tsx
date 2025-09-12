@@ -24,6 +24,17 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+/**
+ * PRD Section: Personalized Recommendations
+ *
+ * Personalized recommendation engine that generates targeted plans across lifestyle, nutrition,
+ * and supplement categories based on biomarker analysis.
+ *
+ * This component displays recommendations across lifestyle, nutrition, and supplement categories,
+ * allowing users to view and manage their personalized health plan. It shows impact levels,
+ * implementation status, and detailed information for each recommendation.
+ */
+
 interface RecommendationProps {
   title: string;
   description: string;
