@@ -278,43 +278,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-background">
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex items-center">
-          <img src="/vite.svg" alt="Vitality Logo" className="h-8 w-8 mr-2" />
-          <h1 className="text-2xl font-bold">Vitality</h1>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full flex items-center">
-            <span className="font-medium">Vitality score: 92.1%</span>
-          </div>
-          <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-            <img
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=John"
-              alt="User avatar"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-center mb-6">
-        <div className="bg-black text-white rounded-full p-1 inline-flex">
-          <Button variant="ghost" className="text-white rounded-full">
-            Dashboard
-          </Button>
-          <Button variant="ghost" className="text-white rounded-full">
-            Bloodwork
-          </Button>
-          <Button variant="ghost" className="text-white rounded-full">
-            Performance
-          </Button>
-          <Button variant="ghost" className="text-white rounded-full">
-            Education
-          </Button>
-        </div>
-      </div>
-
+    <div className="container mx-auto p-4 bg-background dark:bg-gray-900">
       <Tabs
         defaultValue="overview"
         className="mb-6"

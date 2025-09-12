@@ -1,7 +1,8 @@
 import React from "react";
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Settings, User } from "lucide-react";
+import { Settings } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 /**
  * PRD Section: User-friendly interface with clear navigation
@@ -14,9 +15,10 @@ import { Settings, User } from "lucide-react";
  */
 const MainLayout: React.FC = () => {
   const location = useLocation();
+
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b bg-white">
+    <div className="min-h-screen bg-background dark:bg-gray-900 dark:text-white transition-colors duration-200">
+      <header className="border-b bg-white dark:bg-gray-800 dark:border-gray-700">
         <div className="container mx-auto p-4 flex justify-between items-center">
           <div className="flex items-center">
             <img
@@ -24,10 +26,13 @@ const MainLayout: React.FC = () => {
               alt="M8TRIX Health Logo"
               className="h-8 mr-2"
             />
-            <h1 className="text-2xl font-bold">M8TRIX Health</h1>
+            <h1 className="text-2xl font-bold dark:text-white">
+              M8TRIX Health
+            </h1>
           </div>
           <div className="flex items-center gap-4">
-            <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full flex items-center">
+            <ThemeToggle />
+            <div className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 px-4 py-2 rounded-full flex items-center">
               <span className="font-medium">Vitality score: 92.1%</span>
             </div>
             <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
