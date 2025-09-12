@@ -380,7 +380,10 @@ const RecommendationsDashboard: React.FC<
             <Button variant="outline">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back
             </Button>
-            <Button className="bg-green-600 hover:bg-green-700 text-white">
+            <Button
+              className="bg-green-600 hover:bg-green-700 text-white"
+              onClick={() => navigate("/plan")}
+            >
               Review plan <ChevronRight className="ml-1 h-4 w-4" />
             </Button>
           </div>

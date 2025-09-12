@@ -542,7 +542,7 @@ const Home = () => {
         <Button
           variant="outline"
           className="flex items-center gap-2"
-          onClick={() => navigate("/recommendations")}
+          onClick={() => navigate("/plan")}
         >
           Review plan <ArrowRight size={16} />
         </Button>

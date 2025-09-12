@@ -4,6 +4,7 @@ import Home from "./components/home";
 import MainLayout from "./components/layout/MainLayout";
 import BiomarkerDetailView from "./components/biomarkers/BiomarkerDetailView";
 import RecommendationsDashboard from "./components/recommendations/RecommendationsDashboard";
+import DetailedPlanView from "./components/recommendations/DetailedPlanView";
 import HealthEducationHub from "./components/education/HealthEducationHub";
 import HistoricalDataView from "./components/dashboard/HistoricalDataView";
 import UserSettings from "./components/settings/UserSettings";
@@ -27,6 +28,7 @@ function App() {
             path="recommendations"
             element={<RecommendationsDashboard />}
           />
+          <Route path="plan" element={<DetailedPlanView />} />
           <Route path="education" element={<HealthEducationHub />} />
           <Route path="history" element={<HistoricalDataView />} />
           <Route path="settings" element={<UserSettings />} />
