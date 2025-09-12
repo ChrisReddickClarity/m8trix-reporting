@@ -26,9 +26,6 @@ const MainLayout: React.FC = () => {
               alt="M8TRIX Health Logo"
               className="h-8 mr-2"
             />
-            <h1 className="text-2xl font-bold dark:text-white">
-              M8TRIX Health
-            </h1>
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />

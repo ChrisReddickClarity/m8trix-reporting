@@ -133,7 +133,10 @@ const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
   };
 
   const renderRecommendationCard = (recommendation: RecommendationProps) => (
-    <Card key={recommendation.title} className="mb-4 bg-white border-gray-200">
+    <Card
+      key={recommendation.title}
+      className="mb-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+    >
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg font-medium">

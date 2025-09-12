@@ -37,7 +37,7 @@ const BiomarkerCard: React.FC<BiomarkerCardProps> = ({
 }) => {
   return (
     <Card
-      className="bg-white cursor-pointer hover:shadow-md transition-shadow"
+      className="bg-white dark:bg-gray-800 cursor-pointer hover:shadow-md transition-shadow"
       onClick={onClick}
     >
       <CardHeader className="pb-2">

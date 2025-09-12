@@ -428,7 +428,7 @@ const DetailedPlanView: React.FC<DetailedPlanViewProps> = () => {
 
       <div className="space-y-6">
         {filteredRecommendations.map((recommendation, index) => (
-          <Card key={index} className="bg-white">
+          <Card key={index} className="bg-white dark:bg-gray-800">
             <CardHeader className="pb-2">
               <div className="flex justify-between items-start">
                 <div className="flex items-center gap-2">

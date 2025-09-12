@@ -40,7 +40,7 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({
   };
 
   return (
-    <Card className="mb-4 bg-white border-gray-200 hover:shadow-md transition-shadow">
+    <Card className="mb-4 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
       <CardContent className="p-4">
         <div className="flex justify-between items-start">
           <div>

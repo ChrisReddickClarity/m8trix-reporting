@@ -152,7 +152,7 @@ const BiomarkerResultsSummary: React.FC<BiomarkerResultsSummaryProps> = ({
   const healthScore = calculateHealthScore();
 
   return (
-    <Card className="bg-white">
+    <Card className="bg-white dark:bg-gray-800">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-xl">{title}</CardTitle>
         <div className="flex gap-2">
