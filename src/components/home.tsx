@@ -9,6 +9,7 @@ import {
   FileText,
   Settings,
   Star,
+  ArrowRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -21,8 +22,26 @@ import {
 } from "@/components/ui/select";
 import VitalityScore from "./dashboard/VitalityScore";
 import FunctionalAreas from "./dashboard/FunctionalAreas";
+import BiomarkerResultsSummary from "./dashboard/BiomarkerResultsSummary";
+import { useNavigate } from "react-router-dom";
+
+/**
+ * PRD Section: Main Dashboard View
+ *
+ * Interactive dashboard displaying overall health score, functional areas (sleep, energy,
+ * cardiovascular health, etc.), and biomarker results with clear visual indicators for
+ * out-of-range values.
+ *
+ * This component serves as the main entry point for the application, displaying a comprehensive
+ * overview of the user's health status including:
+ * - Overall health/vitality score
+ * - Functional areas performance
+ * - Biomarker results summary with out-of-range indicators
+ * - Performance plan recommendations
+ */
 
 const Home = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("overview");
   const [bloodDrawDate, setBloodDrawDate] = useState("August 2, 2024");
 
@@ -468,35 +487,17 @@ const Home = () => {
             </CardContent>
           </Card>
 
-          <Card className="mb-6">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-xl">Biomarkers</CardTitle>
-              <div className="flex gap-2">
-                <Badge variant="destructive">Out of range</Badge>
-                <Badge variant="outline">Normal</Badge>
-                <Badge variant="secondary">Performance</Badge>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="flex justify-center items-center mb-6">
-                <div className="relative w-40 h-40">
-                  <div className="absolute inset-0 rounded-full border-8 border-gray-100"></div>
-                  <div
-                    className="absolute inset-0 rounded-full border-8 border-green-500 border-r-transparent border-b-transparent"
-                    style={{ transform: "rotate(45deg)" }}
-                  ></div>
-                  <div className="absolute inset-0 flex items-center justify-center flex-col">
-                    <span className="text-4xl font-bold">85</span>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {outOfRangeBiomarkers
-                  .slice(0, 3)
-                  .map((biomarker) => renderBiomarkerCard(biomarker))}
-              </div>
-            </CardContent>
-          </Card>
+          <BiomarkerResultsSummary
+            biomarkers={outOfRangeBiomarkers}
+            title="Biomarkers"
+            maxDisplay={4}
+            onViewAll={() => navigate("/biomarker/all")}
+            onBiomarkerClick={(biomarker) =>
+              navigate(
+                `/biomarker/${biomarker.name.toLowerCase().replace(" ", "-")}`,
+              )
+            }
+          />
         </div>
       </div>
 
@@ -538,7 +539,13 @@ const Home = () => {
 
       <div className="flex justify-between mt-8">
         <Button variant="outline">Back</Button>
-        <Button variant="outline">Review plan</Button>
+        <Button
+          variant="outline"
+          className="flex items-center gap-2"
+          onClick={() => navigate("/recommendations")}
+        >
+          Review plan <ArrowRight size={16} />
+        </Button>
       </div>
     </div>
   );

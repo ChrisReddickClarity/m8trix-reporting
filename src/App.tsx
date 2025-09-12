@@ -19,22 +19,20 @@ import routes from "tempo-routes";
 function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path="biomarker/:id" element={<BiomarkerDetailView />} />
-            <Route
-              path="recommendations"
-              element={<RecommendationsDashboard />}
-            />
-            <Route path="education" element={<HealthEducationHub />} />
-            <Route path="history" element={<HistoricalDataView />} />
-            <Route path="settings" element={<UserSettings />} />
-          </Route>
-        </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
-      </>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="biomarker/:id" element={<BiomarkerDetailView />} />
+          <Route
+            path="recommendations"
+            element={<RecommendationsDashboard />}
+          />
+          <Route path="education" element={<HealthEducationHub />} />
+          <Route path="history" element={<HistoricalDataView />} />
+          <Route path="settings" element={<UserSettings />} />
+        </Route>
+      </Routes>
+      {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
     </Suspense>
   );
 }

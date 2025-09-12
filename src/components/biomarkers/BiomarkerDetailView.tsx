@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Info, ArrowLeft, Calendar, Download } from "lucide-react";
+import { Info, ArrowLeft, Calendar, Download, Check } from "lucide-react";
 import {
   LineChart,
   Line,
