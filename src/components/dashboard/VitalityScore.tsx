@@ -34,45 +34,68 @@ const VitalityScore = ({
   ],
 }: VitalityScoreProps) => {
   return (
-    <Card className="bg-background w-full max-w-md">
+    <Card className="bg-white rounded-3xl overflow-hidden">
       <CardContent className="p-6">
-        <div className="flex flex-col space-y-6">
-          <div className="flex flex-col space-y-2">
-            <h2 className="text-lg font-medium">Vitality Score</h2>
-
-            <div className="flex items-baseline">
-              <span className="text-6xl font-bold">{score}%</span>
-            </div>
-
-            <div className="relative w-full h-4 mt-2">
-              <div className="absolute w-full h-full bg-gray-200 rounded-full"></div>
-              <div
-                className="absolute h-full bg-green-500 rounded-full"
-                style={{ width: `${score}%` }}
-              ></div>
-            </div>
-
-            <p className="text-sm text-muted-foreground mt-2">
-              {percentile}th percentile for men {chronologicalAge}-39 years old
-            </p>
-
-            <div className="flex items-center mt-1">
-              <span className="text-sm font-medium">Biological age:</span>
-              <span className="text-sm ml-1">{biologicalAge}y</span>
+        <div className="flex flex-col space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold">Vitality score</h2>
+            <div className="flex items-center">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col">
+            <span className="text-[80px] font-bold leading-none">{score}%</span>
+
+            <div className="mt-2 mb-4">
+              <div className="flex overflow-hidden h-2 w-full">
+                {Array.from({ length: 100 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-[3px] mx-[1px] ${i < score ? "bg-green-500" : "bg-gray-200"}`}
+                  ></div>
+                ))}
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-600">
+              {percentile}th percentile for men 30-39 years old
+            </p>
+
+            <div className="flex items-center mt-1">
+              <span className="text-sm">Biological age:</span>
+              <span className="text-sm ml-1 font-medium">{biologicalAge}y</span>
+            </div>
+          </div>
+
+          <div className="mt-4">
             <h3 className="text-sm font-medium mb-2">Focus:</h3>
             <div className="flex flex-wrap gap-2">
               {focusAreas.map((area, index) => (
                 <Badge
                   key={index}
-                  variant={area.isPrimary ? "default" : "secondary"}
-                  className="flex items-center gap-1"
+                  variant="outline"
+                  className={`flex items-center gap-1 px-3 py-1 rounded-full ${area.isPrimary ? "bg-green-100 text-green-800 border-green-200" : "bg-purple-100 text-purple-800 border-purple-200"}`}
                 >
-                  {area.isPrimary && <Star className="h-3 w-3" />}
-                  {area.name}: {area.score}%
+                  <Star
+                    className={`h-4 w-4 ${area.isPrimary ? "text-green-500 fill-green-500" : "text-purple-500 fill-purple-500"}`}
+                  />
+                  <span>
+                    {area.name}: {area.score}%
+                  </span>
                 </Badge>
               ))}
             </div>

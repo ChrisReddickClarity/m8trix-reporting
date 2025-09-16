@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Info, Star } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -30,8 +30,9 @@ interface FunctionalAreasProps {
   areas?: FunctionalArea[];
   impactFactors?: {
     name: string;
-    value: string;
+    value?: string;
     severity?: "Mild" | "Moderate" | "Strong";
+    status?: "Normal" | "High" | "Low";
     isFocus?: boolean;
   }[];
   focusArea?: string;
@@ -40,24 +41,24 @@ interface FunctionalAreasProps {
 const FunctionalAreas = ({
   areas = [
     { name: "Sleep", score: 94.1, isFocus: true },
-    { name: "Micronutrients", score: 93.8 },
-    { name: "Cardiovascular", score: 92.9 },
-    { name: "Cell health", score: 91.2 },
-    { name: "Energy", score: 90.7 },
-    { name: "Resilience", score: 90.6 },
-    { name: "Stress", score: 90.4 },
-    { name: "Inflammation", score: 89.9 },
-    { name: "Toxic load", score: 89.4 },
-    { name: "Hydration", score: 89.3 },
-    { name: "Hormone profile", score: 88.8 },
-    { name: "Brain chemistry", score: 88.5 },
-    { name: "Gut health", score: 88.1 },
+    { name: "Micronutrients", score: 89.4 },
+    { name: "Cardiovascular", score: 88.8 },
+    { name: "Cell health", score: 87.9 },
+    { name: "Energy", score: 85.3 },
+    { name: "Resilience", score: 82.5 },
+    { name: "Stress", score: 81.6 },
+    { name: "Inflammation", score: 80.9 },
+    { name: "Toxic load", score: 80.8 },
+    { name: "Hydration", score: 42.8 },
+    { name: "Hormone profile", score: 41.4 },
+    { name: "Brain chemistry", score: 38.1 },
+    { name: "Gut health", score: 35.4 },
   ],
   impactFactors = [
-    { name: "Metabolic imbalance", value: "Mild", severity: "Mild" },
-    { name: "Testosterone Total", value: "277 ng/dL", isFocus: false },
-    { name: "Hemoglobin A1C", value: "5.4%", isFocus: false },
-    { name: "DHEA-S", value: "230 ug/dL", isFocus: false },
+    { name: "Metabolic imbalance", severity: "Moderate" },
+    { name: "Biomarker", value: "4.4%", status: "Normal" },
+    { name: "Biomarker", value: "4.4%", status: "Normal" },
+    { name: "Biomarker", value: "27%", status: "Normal" },
   ],
   focusArea = "Sleep: 94.1%",
 }: FunctionalAreasProps) => {
@@ -75,10 +76,10 @@ const FunctionalAreas = ({
   });
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+    <div className="bg-white rounded-3xl p-6">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
-          <h2 className="text-xl font-semibold">Functional Areas</h2>
+          <h2 className="text-xl font-semibold">Functional areas</h2>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
@@ -94,95 +95,98 @@ const FunctionalAreas = ({
           </TooltipProvider>
         </div>
 
-        <Tabs defaultValue="All" className="w-auto">
-          <TabsList>
-            <TabsTrigger
-              value="All"
-              onClick={() => setFilter("All")}
-              className={filter === "All" ? "bg-black text-white" : ""}
-            >
-              All
-            </TabsTrigger>
-            <TabsTrigger
-              value="Low"
-              onClick={() => setFilter("Low")}
-              className={filter === "Low" ? "bg-black text-white" : ""}
-            >
-              Low
-            </TabsTrigger>
-            <TabsTrigger
-              value="High"
-              onClick={() => setFilter("High")}
-              className={filter === "High" ? "bg-black text-white" : ""}
-            >
-              High
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
+        <div className="flex rounded-full overflow-hidden border border-gray-200">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setFilter("All")}
+            className={`rounded-none px-4 ${filter === "All" ? "bg-black text-white" : "bg-white text-black"}`}
+          >
+            All
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setFilter("Low")}
+            className={`rounded-none px-4 ${filter === "Low" ? "bg-black text-white" : "bg-white text-black"}`}
+          >
+            Low
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setFilter("High")}
+            className={`rounded-none px-4 ${filter === "High" ? "bg-black text-white" : "bg-white text-black"}`}
+          >
+            High
+          </Button>
+        </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-6">
-        {impactFactors && impactFactors.length > 0 && (
-          <div className="w-full text-sm text-gray-600 mb-2">
-            <span className="font-medium">
-              {impactFactors.length} impact factors for
-            </span>
-            <span className="ml-2 inline-flex items-center">
-              <Star size={16} className="text-green-500 fill-green-500 mr-1" />
-              {focusArea}
-            </span>
-          </div>
-        )}
+      <div className="flex items-center mb-4">
+        <span className="text-sm">4 impact factors for</span>
+        <span className="ml-2 inline-flex items-center bg-green-100 text-green-800 px-2 py-1 rounded-full">
+          <Star size={16} className="text-green-500 fill-green-500 mr-1" />
+          Sleep: 94.1%
+        </span>
+      </div>
 
-        {impactFactors?.map((factor, index) => (
-          <div key={index} className="flex flex-col p-3 border rounded-lg">
+      <div className="grid grid-cols-1 gap-4 mb-6">
+        <div className="flex flex-col">
+          <span className="font-medium">Metabolic imbalance</span>
+          <div className="flex items-center">
+            <span className="inline-block w-3 h-3 bg-yellow-400 mr-2"></span>
+            <span className="text-gray-600">Moderate</span>
+          </div>
+        </div>
+
+        {impactFactors.slice(1).map((factor, index) => (
+          <div key={index} className="flex flex-col">
             <span className="font-medium">{factor.name}</span>
-            <div className="flex items-center gap-1">
-              {factor.severity && (
-                <span
-                  className={`inline-block w-3 h-3 rounded-sm ${
-                    factor.severity === "Mild"
-                      ? "bg-purple-400"
-                      : factor.severity === "Moderate"
-                        ? "bg-yellow-400"
-                        : "bg-red-500"
-                  }`}
-                />
-              )}
+            <div className="flex items-center">
+              <span className="inline-block w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-purple-500 border-b-[6px] border-b-transparent mr-2"></span>
               <span className="text-gray-600">
-                {factor.severity ? factor.severity : "Normal"} • {factor.value}
+                {factor.status} • {factor.value}
               </span>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-        {filteredAreas.map((area, index) => {
-          // Calculate height based on score (min height 100px, max height 250px)
-          const height = 100 + area.score * 1.5;
+      <div className="flex items-end justify-between h-[200px] mt-8 mb-4 relative">
+        {filteredAreas.slice(0, 13).map((area, index) => {
+          const height = `${area.score}%`;
 
           return (
-            <div key={index} className="flex flex-col items-center">
-              <div className="relative w-full mb-2">
-                <div
-                  className={`w-full rounded-md ${area.isFocus ? "bg-green-500" : "bg-gray-100"}`}
-                  style={{ height: `${height}px` }}
-                >
-                  {area.isFocus && (
-                    <div className="absolute top-2 left-0 w-full flex justify-center">
-                      <Star size={20} className="text-white fill-white" />
-                    </div>
-                  )}
-                  <div className="absolute bottom-2 left-0 w-full text-center text-xs font-medium">
-                    {area.score.toFixed(1)}%
-                  </div>
-                </div>
+            <div key={index} className="flex flex-col items-center w-[7%]">
+              {area.isFocus && (
+                <Star
+                  size={16}
+                  className="text-green-500 fill-green-500 absolute -top-6"
+                />
+              )}
+              <div
+                className={`w-full ${area.isFocus ? "bg-green-500" : "bg-gray-200"} rounded-t-md relative`}
+                style={{ height }}
+              >
+                <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-medium">
+                  {area.score.toFixed(1)}
+                </span>
               </div>
-              <span className="text-xs text-center">{area.name}</span>
             </div>
           );
         })}
+      </div>
+
+      <div className="flex justify-between text-[10px] text-gray-500 mt-2">
+        {filteredAreas.slice(0, 13).map((area, index) => (
+          <div
+            key={index}
+            className="w-[7%] text-center rotate-[60deg] origin-left"
+          >
+            {area.name}
+          </div>
+        ))}
       </div>
     </div>
   );
