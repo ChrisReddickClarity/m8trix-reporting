@@ -70,8 +70,8 @@ const FunctionalAreas = ({
   // Filter areas based on selected filter
   const filteredAreas = sortedAreas.filter((area) => {
     if (filter === "All") return true;
-    if (filter === "High") return area.score >= 90;
-    if (filter === "Low") return area.score < 90;
+    if (filter === "High") return area.score >= 80;
+    if (filter === "Low") return area.score < 80;
     return true;
   });
 
@@ -156,8 +156,9 @@ const FunctionalAreas = ({
       <div className="flex items-end justify-between h-[200px] mt-8 mb-4 relative">
         {filteredAreas.slice(0, 13).map((area, index) => {
           // Calculate height as a percentage of the container height (200px)
-          // Ensure the bar has at least a minimum height for visibility
-          const heightPercentage = Math.max(10, area.score); // Minimum 10% height
+          // Scale the score to fit within the container height
+          // For scores between 0-100, we'll map them to 10-100% of container height
+          const heightPercentage = 10 + (area.score / 100) * 90; // Scale to 10-100%
           const height = `${heightPercentage}%`;
 
           return (
