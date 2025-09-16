@@ -15,6 +15,7 @@ import {
   Download,
   Calendar,
   ChevronRight,
+  FileText,
 } from "lucide-react";
 import RecommendationPanel from "./RecommendationPanel";
 import RecommendationCard from "./RecommendationCard";
@@ -169,6 +170,13 @@ const RecommendationsDashboard: React.FC<
           </Button>
           <Button variant="outline" size="sm">
             <Download className="mr-2 h-4 w-4" /> Export
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => navigate("/report")}
+          >
+            <FileText className="mr-2 h-4 w-4" /> Generate Report
           </Button>
           <Button>
             <Check className="mr-2 h-4 w-4" /> Save Plan

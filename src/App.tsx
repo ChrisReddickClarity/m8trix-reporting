@@ -8,6 +8,7 @@ import DetailedPlanView from "./components/recommendations/DetailedPlanView";
 import HealthEducationHub from "./components/education/HealthEducationHub";
 import HistoricalDataView from "./components/dashboard/HistoricalDataView";
 import UserSettings from "./components/settings/UserSettings";
+import ReportView from "./components/reports/ReportView";
 import routes from "tempo-routes";
 
 /**
@@ -31,6 +32,7 @@ function App() {
           <Route path="plan" element={<DetailedPlanView />} />
           <Route path="education" element={<HealthEducationHub />} />
           <Route path="history" element={<HistoricalDataView />} />
+          <Route path="report" element={<ReportView />} />
           <Route path="settings" element={<UserSettings />} />
         </Route>
       </Routes>

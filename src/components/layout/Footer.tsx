@@ -10,6 +10,7 @@ import {
   ChevronRight,
   BarChart2,
   History,
+  FileText,
 } from "lucide-react";
 
 const Footer: React.FC = () => {
@@ -134,6 +135,14 @@ const Footer: React.FC = () => {
               onClick={() => navigate("/history")}
             >
               <History className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-gray-800 rounded-full"
+              onClick={() => navigate("/report")}
+            >
+              <FileText className="h-5 w-5" />
             </Button>
             <Button
               variant="ghost"

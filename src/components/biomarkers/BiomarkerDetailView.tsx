@@ -4,7 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Info, ArrowLeft, Calendar, Download, Check } from "lucide-react";
+import {
+  Info,
+  ArrowLeft,
+  Calendar,
+  Download,
+  Check,
+  FileText,
+} from "lucide-react";
 import {
   LineChart,
   Line,
@@ -132,6 +139,13 @@ const BiomarkerDetailView: React.FC<BiomarkerDetailViewProps> = () => {
                       </Button>
                       <Button variant="outline" size="sm">
                         <Download className="mr-2 h-4 w-4" /> Export
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => navigate("/report")}
+                      >
+                        <FileText className="mr-2 h-4 w-4" /> Generate Report
                       </Button>
                     </div>
                   </div>
