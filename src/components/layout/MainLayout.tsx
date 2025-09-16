@@ -1,6 +1,7 @@
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 /**
  * PRD Section: User-friendly interface with clear navigation
@@ -12,13 +13,13 @@ import { Button } from "@/components/ui/button";
  * allowing users to easily navigate between the main sections of the dashboard.
  */
 const MainLayout: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
-    <div className="min-h-screen bg-background">
-      <main>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
+      <main className="flex-grow">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };
