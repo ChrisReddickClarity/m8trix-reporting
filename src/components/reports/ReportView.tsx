@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Document, Page } from "react-pdf";
-import * as pdfjs from "pdfjs-dist";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,8 +12,11 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+// Import pdfjs separately to avoid issues
+import * as pdfjs from "pdfjs-dist";
+
 // Set up the worker for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 /**
  * PRD Section: Report Generation
@@ -38,6 +40,11 @@ const ReportView: React.FC<ReportViewProps> = () => {
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
     setNumPages(numPages);
+    setIsLoading(false);
+  }
+
+  function onDocumentLoadError(error: Error): void {
+    console.error("Error loading PDF:", error);
     setIsLoading(false);
   }
 
@@ -169,9 +176,10 @@ const ReportView: React.FC<ReportViewProps> = () => {
                 </div>
               }
               onLoadSuccess={onDocumentLoadSuccess}
+              onLoadError={onDocumentLoadError}
               error={
                 <div className="text-center text-red-500">
-                  Failed to load PDF. Please try again later.
+                  Failed to load PDF. Please check the console for more details.
                 </div>
               }
             >
