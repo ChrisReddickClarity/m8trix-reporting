@@ -13,10 +13,7 @@ import {
 } from "lucide-react";
 
 // Set up the worker for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "node_modules/pdfjs-dist/build/pdf.worker.min.js",
-  import.meta.url,
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 /**
  * PRD Section: Report Generation
