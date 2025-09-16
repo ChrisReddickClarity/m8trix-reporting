@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Document, Page, pdfjs } from "react-pdf";
+import { Document, Page } from "react-pdf";
+import * as pdfjs from "pdfjs-dist";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -162,8 +163,12 @@ const ReportView: React.FC<ReportViewProps> = () => {
           <div className="flex justify-center">
             <Document
               file="/report.pdf"
+              loading={
+                <div className="flex justify-center items-center h-[600px]">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                </div>
+              }
               onLoadSuccess={onDocumentLoadSuccess}
-              loading={<div className="text-center">Loading PDF...</div>}
               error={
                 <div className="text-center text-red-500">
                   Failed to load PDF. Please try again later.
