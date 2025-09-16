@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Document, Page } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,11 +12,11 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-// Import pdfjs separately to avoid issues
-import * as pdfjs from "pdfjs-dist";
-
 // Set up the worker for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "node_modules/pdfjs-dist/build/pdf.worker.min.js",
+  import.meta.url,
+).toString();
 
 /**
  * PRD Section: Report Generation
