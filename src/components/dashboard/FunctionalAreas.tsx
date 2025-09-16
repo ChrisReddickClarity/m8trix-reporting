@@ -159,7 +159,7 @@ const FunctionalAreas = ({
           // Scale the score to fit within the container height
           // For scores between 0-100, we'll map them to 10-100% of container height
           const heightPercentage = 10 + (area.score / 100) * 90; // Scale to 10-100%
-          const height = `${heightPercentage}%`;
+          const heightPx = (heightPercentage / 100) * 200; // Convert percentage to pixels based on container height
 
           return (
             <div key={index} className="flex flex-col items-center w-[7%]">
@@ -171,7 +171,7 @@ const FunctionalAreas = ({
               )}
               <div
                 className={`w-full ${area.isFocus ? "bg-green-500" : "bg-gray-200"} rounded-t-md relative`}
-                style={{ height }}
+                style={{ height: `${heightPx}px` }}
               >
                 <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-medium">
                   {area.score.toFixed(1)}
