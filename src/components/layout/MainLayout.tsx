@@ -1,5 +1,6 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 /**
  * PRD Section: User-friendly interface with clear navigation
@@ -11,6 +12,8 @@ import { Outlet } from "react-router-dom";
  * allowing users to easily navigate between the main sections of the dashboard.
  */
 const MainLayout: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <main>

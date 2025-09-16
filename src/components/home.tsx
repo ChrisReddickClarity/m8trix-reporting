@@ -48,7 +48,7 @@ const Home = () => {
                 />
               </svg>
             </div>
-            <span className="text-xl font-semibold">Vitality</span>
+            <span className="text-xl font-semibold">M8TRIX Health</span>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -56,24 +56,28 @@ const Home = () => {
               <Button
                 variant="ghost"
                 className="text-white bg-black hover:bg-gray-800 rounded-full px-4"
+                onClick={() => navigate("/")}
               >
                 Dashboard
               </Button>
               <Button
                 variant="ghost"
                 className="text-white hover:bg-gray-800 rounded-full px-4"
+                onClick={() => navigate("/biomarker/ggt")}
               >
                 Bloodwork
               </Button>
               <Button
                 variant="ghost"
                 className="text-white hover:bg-gray-800 rounded-full px-4"
+                onClick={() => navigate("/recommendations")}
               >
                 Performance
               </Button>
               <Button
                 variant="ghost"
                 className="text-white hover:bg-gray-800 rounded-full px-4"
+                onClick={() => navigate("/education")}
               >
                 Education
               </Button>

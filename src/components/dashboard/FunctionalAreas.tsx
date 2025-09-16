@@ -155,7 +155,10 @@ const FunctionalAreas = ({
 
       <div className="flex items-end justify-between h-[200px] mt-8 mb-4 relative">
         {filteredAreas.slice(0, 13).map((area, index) => {
-          const height = `${area.score}%`;
+          // Calculate height as a percentage of the container height (200px)
+          // Ensure the bar has at least a minimum height for visibility
+          const heightPercentage = Math.max(10, area.score); // Minimum 10% height
+          const height = `${heightPercentage}%`;
 
           return (
             <div key={index} className="flex flex-col items-center w-[7%]">
