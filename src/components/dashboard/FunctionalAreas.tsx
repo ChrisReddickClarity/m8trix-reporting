@@ -95,12 +95,12 @@ const FunctionalAreas = ({
           </TooltipProvider>
         </div>
 
-        <div className="flex rounded-full overflow-hidden border border-gray-200">
+        <div className="flex rounded-full overflow-hidden border border-gray-200 text-sm">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setFilter("All")}
-            className={`rounded-none px-4 ${filter === "All" ? "bg-black text-white" : "bg-white text-black"}`}
+            className={`rounded-none px-4 py-1 ${filter === "All" ? "bg-black text-white" : "bg-white text-black"}`}
           >
             All
           </Button>
@@ -108,7 +108,7 @@ const FunctionalAreas = ({
             variant="ghost"
             size="sm"
             onClick={() => setFilter("Low")}
-            className={`rounded-none px-4 ${filter === "Low" ? "bg-black text-white" : "bg-white text-black"}`}
+            className={`rounded-none px-4 py-1 ${filter === "Low" ? "bg-black text-white" : "bg-white text-black"}`}
           >
             Low
           </Button>
@@ -116,7 +116,7 @@ const FunctionalAreas = ({
             variant="ghost"
             size="sm"
             onClick={() => setFilter("High")}
-            className={`rounded-none px-4 ${filter === "High" ? "bg-black text-white" : "bg-white text-black"}`}
+            className={`rounded-none px-4 py-1 ${filter === "High" ? "bg-black text-white" : "bg-white text-black"}`}
           >
             High
           </Button>
@@ -185,7 +185,7 @@ const FunctionalAreas = ({
         {filteredAreas.slice(0, 13).map((area, index) => (
           <div
             key={index}
-            className="w-[7%] text-center rotate-[60deg] origin-left"
+            className="w-[7%] text-center rotate-[60deg] origin-left whitespace-nowrap overflow-hidden"
           >
             {area.name}
           </div>

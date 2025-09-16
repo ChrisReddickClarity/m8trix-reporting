@@ -65,7 +65,7 @@ const VitalityScore = ({
                 {Array.from({ length: 100 }).map((_, i) => (
                   <div
                     key={i}
-                    className={`w-[3px] mx-[1px] ${i < score ? "bg-green-500" : "bg-gray-200"}`}
+                    className={`w-[3px] mx-[0.5px] ${i < score ? "bg-green-500" : "bg-gray-200"}`}
                   ></div>
                 ))}
               </div>

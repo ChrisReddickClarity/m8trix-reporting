@@ -87,7 +87,7 @@ const PerformancePlan: React.FC<PerformancePlanProps> = ({
   ],
 }) => {
   const renderRecommendation = (recommendation: RecommendationProps) => (
-    <div className="mb-4 bg-white rounded-xl p-4">
+    <div className="mb-4 bg-white rounded-xl p-4 shadow-sm">
       <h4 className="font-medium">{recommendation.title}</h4>
       <p className="text-sm text-gray-600 my-2">{recommendation.description}</p>
       <div className="flex items-center justify-between mt-2">

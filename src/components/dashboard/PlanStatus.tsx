@@ -19,7 +19,7 @@ const PlanStatus: React.FC<PlanStatusProps> = ({
         <h2 className="text-xl font-semibold mb-4">Plan status</h2>
         <h3 className="text-lg font-medium mb-4">Blood draw appointment</h3>
 
-        <div className="bg-green-700 rounded-xl p-4 mb-6">
+        <div className="bg-green-700 rounded-xl p-4 mb-6 text-sm">
           <p className="text-white">
             Check your email for your blood draw requisition form and scheduling
             link. Please allow 1-2 business days for delivery.{" "}

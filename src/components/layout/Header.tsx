@@ -7,10 +7,10 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   return (
-    <header className="bg-black text-white rounded-b-3xl px-6 py-4">
+    <header className="bg-black text-white rounded-b-3xl px-6 py-2">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="w-16 h-16 flex items-center justify-center">
+          <div className="w-12 h-12 flex items-center justify-center">
             <img
               src="/logo.webp"
               alt="Logo"
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="bg-green-400 text-black px-4 py-1 rounded-full">
+            <div className="bg-green-400 text-black px-4 py-1 rounded-full text-sm font-medium">
               Vitality score: 92.1%
             </div>
             <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
